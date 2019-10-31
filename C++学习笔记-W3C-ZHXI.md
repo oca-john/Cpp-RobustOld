@@ -12,12 +12,23 @@ C++里的基本概念：
 C++程序结构：  
 ``` c++
 #include <iostream>     // io库，同C的头文件
-using namespace std;
+using namespace std;    // std命名空间
 
-// main() 是程序开始执行的地方
-
-int main()
+int main()              // 唯一主程序
 {
-   cout << "Hello World"; // 输出 Hello World    return 0; 
+   cout << "Hello World";    
+   // 将字符传递至“命令行输出函数”
+   return 0; 
+   // 返回状态参数0，表示正常
 } 
 ```
+编译和执行：  
+``` sh
+~> g++ hello.cpp        # 编译
+~> ./a.out              # 执行
+# 输出 Hello World
+```
+- 分号是语句结束符，可以在一行中放置多个语句
+- 大括号将语句块括起来
+
+C++标识符  
