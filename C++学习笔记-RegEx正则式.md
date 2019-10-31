@@ -14,15 +14,15 @@ cout << regex_match("123", regex("\\d+")) << endl;	//结果为1，完全匹配
 ### 2.1 基本概念
 match是全文匹配，即要求整个字符串符合匹配规则。
 ``` c++
-cout << regex_match("123", regex("\\d")) << endl;		//结果为0
-cout << regex_match("123", regex("\\d+")) << endl;		//结果为1
+cout << regex_match("123", regex("\\d")) << endl;	//结果为0
+cout << regex_match("123", regex("\\d+")) << endl;	//结果为1
 ```
 上述方法返回值为bool值，主要用于if条件表达式中。
 ### 2.2 匹配结果
 更多的时候我们希望能够获得匹配结果（字符串），对结果进行操作。这时就需要对匹配结果进行存储，共有两种存储方式。
 ``` c++
 match_results<string::const_iterator> result;
-smatch result;			//推荐
+smatch result;						//推荐
 ```
 第二种方式使用起来更简洁、方便，推荐使用。
 ### 2.3 实例
@@ -30,17 +30,17 @@ smatch result;			//推荐
 ``` c++
 string str = "Hello_2018";
 smatch result;
-regex pattern("(.{5})_(\\d{4})");	//匹配5个任意单字符 + 下划线 + 4个数字
+regex pattern("(.{5})_(\\d{4})");			//匹配5个任意单字符 + 下划线 + 4个数字
 
 if (regex_match(str, result, pattern))
 {
-	cout << result[0] << endl;		//完整匹配结果，Hello_2018
-	cout << result[1] << endl;		//第一组匹配的数据，Hello
-	cout << result[2] << endl;		//第二组匹配的数据，2018
+	cout << result[0] << endl;			//完整匹配结果，Hello_2018
+	cout << result[1] << endl;			//第一组匹配的数据，Hello
+	cout << result[2] << endl;			//第二组匹配的数据，2018
 	cout<<"结果显示形式2"<<endl;
-	cout<< result.str() << endl;	//完整结果，Hello_2018
-	cout<< result.str(1) << endl;	//第一组匹配的数据，Hello
-	cout << result.str(2) << endl;	//第二组匹配的数据，2018
+	cout<< result.str() << endl;			//完整结果，Hello_2018
+	cout<< result.str(1) << endl;			//第一组匹配的数据，Hello
+	cout << result.str(2) << endl;			//第二组匹配的数据，2018
 }
 
 //遍历结果
@@ -56,15 +56,15 @@ for (int i = 0; i < result.size(); ++i)
 - search是搜索匹配，即搜索字符串中存在符合规则的子字符串。
 - match与search一比较便知：
 ``` c++
-cout << regex_match("123", regex("\\d")) << endl;		//结果为0
-cout << regex_search("123", regex("\\d")) << endl;		//结果为1
+cout << regex_match("123", regex("\\d")) << endl;	//结果为0
+cout << regex_search("123", regex("\\d")) << endl;	//结果为1
 ```
 ### 3.2 实例
 直接看例子：
 ``` c++
 string str = "Hello 2018, Bye 2017";
 smatch result;
-regex pattern("\\d{4}");	//匹配四个数字
+regex pattern("\\d{4}");				//匹配四个数字
 
 //迭代器声明
 string::const_iterator iterStart = str.begin();
@@ -74,7 +74,7 @@ while (regex_search(iterStart, iterEnd, result, pattern))
 {
 	temp = result[0];
 	cout << temp << " ";
-	iterStart = result[0].second;	//更新搜索起始位置,搜索剩下的字符串
+	iterStart = result[0].second;			//更新搜索起始位置,搜索剩下的字符串
 }
 
 输出结果：2018 2017
@@ -93,7 +93,7 @@ cout << regex_replace(str, pattern, "Hi") << endl;	//输出：Hi_2018，将Hello
 除了直接替换以外，还有可以用来调整字符串内容（缩短、顺序等）。
 ``` c++
 string str = "Hello_2018!";	
-regex pattern2("(.{3})(.{2})_(\\d{4})");				//匹配3个任意字符+2个任意字符+下划线+4个数字
+regex pattern2("(.{3})(.{2})_(\\d{4})");		//匹配3个任意字符+2个任意字符+下划线+4个数字
 cout << regex_replace(str, pattern2, "$1$3") << endl;	//输出：Hel2018，将字符串替换为第一个和第三个表达式匹配的内容
 cout << regex_replace(str, pattern2, "$1$3$2") << endl;	//输出：Hel2018lo，交换位置顺序
 ```
@@ -101,8 +101,8 @@ cout << regex_replace(str, pattern2, "$1$3$2") << endl;	//输出：Hel2018lo，�
 ## 5 匹配忽略大小写
 有时我们希望能够匹配的时候忽略大小写，这时候就要用到Regex的语法选项了。
 ``` c++
-cout << regex_match("aaaAAA", regex("a*", regex::icase)) << endl;	//结果为1
-cout << regex_match("aaaAAA", regex("a*")) << endl;					//结果为0
+cout << regex_match("aaaAAA", regex("a*", regex::icase)) << endl; //结果为1
+cout << regex_match("aaaAAA", regex("a*")) << endl;	//结果为0
 ```
 regex::icase：匹配时忽略大小写。
 ## 6 帮助网站
