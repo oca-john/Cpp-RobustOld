@@ -1,6 +1,5 @@
 #include <iostream>
-int main()
-{
+int main() {
 	using namespace std;
 	int i;      //declaring integer variable
 	float f;    //declaring float variable
