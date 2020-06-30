@@ -13,7 +13,7 @@ int main() {
     std::cin >> passwd;                         // 错误，重输，计数器加一
     tries++;
   }
-  std::cout << "Password accepted.\n";          // 正确后通过
+  std::cout << "Password accepted.\n";          // 正确则跳出循环
   std::cout << "You now have access.\n";
   return 0;                                     // 返回0
 }
