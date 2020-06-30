@@ -3,6 +3,7 @@
 
 // a num is odd or even, use vector
 // 未研究明白<vector>库的用法
+// 常用的<string>库的用法
 
 int main() {
   int total_even = 0;
