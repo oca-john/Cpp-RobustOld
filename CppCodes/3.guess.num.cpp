@@ -10,7 +10,7 @@ int main() {
   std::cin >> guess;                    // 输入猜数
   // while loop judge it right or wrong.
   while (guess != 8) {                  // while判断对否，错误重猜
-    std::cout "Wrong num, retry: ";
+    std::cout << "Wrong num, retry: ";
     std::cin >> guess;
   }
   std::cout << "You are right.\n";      // 正确则跳出
