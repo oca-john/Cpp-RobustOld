@@ -1,6 +1,5 @@
 #include <iostream>
 #include <stdio.h>
- 
 using namespace std;            //使用标准命名空间
  
 int main() {
