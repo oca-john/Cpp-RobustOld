@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
- 
+// 先输运算符，再输数值，不符合实际操作习惯
+
 int main()
 {
     char op;
